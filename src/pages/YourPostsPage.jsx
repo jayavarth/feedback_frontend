@@ -88,7 +88,6 @@ const YourPostsPage = () => {
       ) : (
         <div className="posts-grid">
           {posts.map((post) => {
-            const isCaptionLong = post.caption?.length > 120;
             const isExpanded = expandedCaptions[post._id];
 
             const feedbackLimit = 2;
@@ -116,16 +115,15 @@ const YourPostsPage = () => {
                     </div>
                   ) : (
                     <div className="caption-wrapper">
-  <p className={`caption ${isExpanded ? "expanded" : "collapsed"}`}>
-    {post.caption}
-  </p>
-  {post.caption?.split(" ").length > 2 && (
-    <button className="see-more-btn" onClick={() => toggleCaption(post._id)}>
-      {isExpanded ? "See Less" : "See More"}
-    </button>
-  )}
-</div>
-
+                        <p className={`caption ${isExpanded ? "expanded" : "collapsed"}`}>
+                            {post.caption}
+                        </p>
+                        {post.caption?.split(" ").length > 6 && (
+                        <button className="see-more-btn" onClick={() => toggleCaption(post._id)}>
+                            {isExpanded ? "See Less" : "See More"}
+                        </button>
+                         )}
+                    </div>
                   )}
 
                   {post.feedbacks?.length > 0 && (

@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/Posts.css";
 import defaultImg from "../assets/image.png";
-import { getUserIdFromToken } from "../utils/decodeToken"; // Import here
-
+import { getUserIdFromToken } from "../utils/decodeToken"; 
 const AllPostsPage = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [feedbacks, setFeedbacks] = useState({});
-  const currentUserId = getUserIdFromToken(); // Your ID
+  const currentUserId = getUserIdFromToken(); 
 
   const fetchPosts = async () => {
     try {

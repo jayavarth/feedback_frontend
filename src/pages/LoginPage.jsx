@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/LandingPage.css";
 import landingImage from "../assets/image.png";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom"; // 👈 add Link here
+import { useNavigate, Link } from "react-router-dom"; 
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -57,7 +57,6 @@ const LoginPage = () => {
           <button type="submit" className="btn">Login</button>
         </form>
 
-        {/* 👇 Add this below the form */}
         <Link to="/" style={{ marginTop: "20px", color: "#1d4ed8" }}>
           ← Back to Home
         </Link>

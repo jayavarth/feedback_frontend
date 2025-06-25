@@ -136,7 +136,6 @@
   box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
 }
 
-/* --- Create Post Modal Styles --- */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -215,7 +214,6 @@
   font-family: inherit;
 }
 
-/* Matching main button style */
 .modal-buttons .btn {
   background-color: #9b73e1;
   color: white;
@@ -227,7 +225,6 @@
   background-color: #7e5bef;
 }
 
-/* Outline style for cancel */
 .modal-buttons .btn-outline {
   background: transparent;
   color: #9b73e1;
@@ -236,11 +233,4 @@
 
 .modal-buttons .btn-outline:hover {
   background-color: #f3e8ff;
-}
-
-/* Optional: Feedback message */
-.message {
-  margin-top: 5px;
-  font-size: 0.95rem;
-  color: #059669;
 }

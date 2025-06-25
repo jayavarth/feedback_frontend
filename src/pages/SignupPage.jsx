@@ -21,7 +21,6 @@ const SignupPage = () => {
         password,
       });
 
-      // Redirect to login page after successful signup
       navigate("/login");
     } catch (err) {
       setError(err.response?.data?.message || "Signup failed");
@@ -66,7 +65,6 @@ const SignupPage = () => {
           <button type="submit" className="btn">Sign Up</button>
         </form>
 
-        {/* 👇 Back to Home link */}
         <Link to="/" style={{ marginTop: "20px", color: "#1d4ed8" }}>
           ← Back to Home
         </Link>

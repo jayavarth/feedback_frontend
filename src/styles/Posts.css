@@ -217,7 +217,7 @@
 .see-more-btn {
   background: none;
   border: none;
-  color: #2563eb; /* Tailwind's blue-600 */
+  color: #2563eb; 
   text-decoration: underline;
   cursor: pointer;
   font-size: 0.95rem;
@@ -226,7 +226,7 @@
 }
 
 .see-more-btn:hover {
-  color: #1d4ed8; /* Darker blue on hover */
+  color: #1d4ed8;
 }
 
 

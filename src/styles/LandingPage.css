@@ -30,7 +30,7 @@
 .landing-content h1 {
   font-size: 2.8rem;
   margin-bottom: 15px;
-  color: #1e3a8a; /* Dark Blue */
+  color: #1e3a8a; 
 }
 
 .landing-content p {
@@ -96,7 +96,6 @@ input:focus {
   box-shadow: 0 0 0 2px #bfdbfe;
 }
 
-/* src/styles/LandingPage.css */
 .landing-full-page {
   display: flex;
   flex-direction: column;
@@ -115,7 +114,7 @@ input:focus {
 }
 
 .overlay-content {
-  background: rgba(255, 255, 255,0.9);
+  background: rgb(255, 255, 255);
   padding: 60px;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
