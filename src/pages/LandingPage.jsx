@@ -7,7 +7,7 @@ import defaultImg from "../assets/image.png";
 
 const LandingPage = () => {
   const [posts, setPosts] = useState([]);
-  const [feedbacks, setFeedbacks] = useState({}); // Store feedbacks by post ID
+  const [feedbacks, setFeedbacks] = useState({}); 
 
   const fetchPosts = async () => {
     try {

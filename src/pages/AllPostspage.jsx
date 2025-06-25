@@ -32,7 +32,7 @@ const AllPostsPage = () => {
 
     try {
       await axios.post(
-        `https://feedback-backend-ksxd.onrender.com/api/posts/${postId}/feedback`,
+        `https://feedback-backend-ksxd.onrender.com/api/posts/feedback/${postId}`,
         { message },
         {
           headers: {
