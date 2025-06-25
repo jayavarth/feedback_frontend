@@ -7,6 +7,7 @@ import defaultImg from "../assets/image.png";
 
 const LandingPage = () => {
   const [posts, setPosts] = useState([]);
+  const [feedbacks, setFeedbacks] = useState({}); // Store feedbacks by post ID
 
   const fetchPosts = async () => {
     try {
@@ -17,13 +18,32 @@ const LandingPage = () => {
     }
   };
 
+  const handleFeedbackChange = (postId, value) => {
+    setFeedbacks((prev) => ({ ...prev, [postId]: value }));
+  };
+
+  const handleSubmitFeedback = async (postId) => {
+    const message = feedbacks[postId]?.trim();
+    if (!message) return;
+
+    try {
+      await axios.post(`https://feedback-backend-ksxd.onrender.com/api/posts/feedback/${postId}`, {
+        message,
+      });
+      alert("Feedback submitted!");
+      setFeedbacks((prev) => ({ ...prev, [postId]: "" }));
+    } catch (err) {
+      console.error("Failed to submit feedback:", err);
+      alert("Error submitting feedback.");
+    }
+  };
+
   useEffect(() => {
     fetchPosts();
   }, []);
 
   return (
     <div className="landing-full-page">
-      {/* Hero Section Over Image */}
       <div className="hero-section">
         <div className="overlay-content">
           <h1>Welcome to FeedbackBoard</h1>
@@ -39,7 +59,6 @@ const LandingPage = () => {
         </div>
       </div>
 
-      {/* Posts Section */}
       <div className="landing-posts-section">
         <h2>🌍 Community Posts</h2>
         <div className="posts-grid">
@@ -55,6 +74,17 @@ const LandingPage = () => {
                   className="post-img"
                 />
                 <p className="post-content">{post.caption}</p>
+
+                <div className="feedback-input">
+                  <textarea
+                    placeholder="Leave your feedback..."
+                    value={feedbacks[post._id] || ""}
+                    onChange={(e) => handleFeedbackChange(post._id, e.target.value)}
+                  ></textarea>
+                  <button className="btn small" onClick={() => handleSubmitFeedback(post._id)}>
+                    Submit
+                  </button>
+                </div>
               </div>
             ))
           )}
