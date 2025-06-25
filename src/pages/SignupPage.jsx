@@ -10,10 +10,49 @@ const SignupPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [formError, setFormError] = useState({ name: "", email: "", password: "" });
+  const [serverError, setServerError] = useState("");
+
+  // Valid email domains (you can add more if needed)
+  const allowedDomains = ["gmail.com", "outlook.com", "yahoo.com", "hotmail.com"];
+
+  const validateEmail = (email) => {
+    const parts = email.split("@");
+    if (parts.length !== 2) return false;
+
+    const domain = parts[1].toLowerCase();
+    return allowedDomains.includes(domain);
+  };
+
+  const validateForm = () => {
+    let isValid = true;
+    const errors = { name: "", email: "", password: "" };
+
+    if (name.trim().length < 2) {
+      errors.name = "Name must be at least 2 characters";
+      isValid = false;
+    }
+
+    if (!validateEmail(email)) {
+      errors.email = "Use a valid email like gmail.com or outlook.com";
+      isValid = false;
+    }
+
+    if (password.length < 6) {
+      errors.password = "Password must be at least 6 characters";
+      isValid = false;
+    }
+
+    setFormError(errors);
+    return isValid;
+  };
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    setServerError("");
+
+    if (!validateForm()) return;
+
     try {
       await axios.post("https://feedback-backend-ksxd.onrender.com/api/auth/register", {
         name,
@@ -23,7 +62,7 @@ const SignupPage = () => {
 
       navigate("/login");
     } catch (err) {
-      setError(err.response?.data?.message || "Signup failed");
+      setServerError(err.response?.data?.message || "Signup failed");
     }
   };
 
@@ -42,25 +81,39 @@ const SignupPage = () => {
             type="text"
             placeholder="Name"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              setName(e.target.value);
+              if (formError.name) setFormError((prev) => ({ ...prev, name: "" }));
+            }}
             required
           />
+          {formError.name && <span style={{ color: "red", fontSize: "0.85rem" }}>{formError.name}</span>}
+
           <input
             type="email"
             placeholder="Email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              if (formError.email) setFormError((prev) => ({ ...prev, email: "" }));
+            }}
             required
           />
+          {formError.email && <span style={{ color: "red", fontSize: "0.85rem" }}>{formError.email}</span>}
+
           <input
             type="password"
             placeholder="Password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              if (formError.password) setFormError((prev) => ({ ...prev, password: "" }));
+            }}
             required
           />
+          {formError.password && <span style={{ color: "red", fontSize: "0.85rem" }}>{formError.password}</span>}
 
-          {error && <p style={{ color: "red" }}>{error}</p>}
+          {serverError && <p style={{ color: "red" }}>{serverError}</p>}
 
           <button type="submit" className="btn">Sign Up</button>
         </form>

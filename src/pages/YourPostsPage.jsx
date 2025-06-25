@@ -128,7 +128,7 @@ const YourPostsPage = () => {
 
                   {post.feedbacks?.length > 0 && (
                     <div className="feedback-section">
-                      <h4>💬 Feedbacks:</h4>
+                      <h4>Feedbacks:</h4>
                       <ul className="feedback-list">
                         {(showAllFeedbacks
                           ? post.feedbacks

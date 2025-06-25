@@ -15,32 +15,35 @@ const DashboardPage = () => {
   };
 
   const handleCreatePost = async (e) => {
-    e.preventDefault();
-    try {
-      const token = localStorage.getItem("token");
+  e.preventDefault();
+  try {
+    const token = localStorage.getItem("token");
 
-      const res = await fetch("https://feedback-backend-ksxd.onrender.com/api/posts/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-        body: JSON.stringify({ caption, image }),
-      });
+    const res = await fetch("https://feedback-backend-ksxd.onrender.com/api/posts/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ caption, image }),
+    });
 
-      const data = await res.json();
-      if (res.ok) {
-        setMessage("Post created successfully!");
-        setCaption("");
-        setImage("");
-        setTimeout(() => setShowModal(false), 1000);
-      } else {
-        setMessage(data.message || "Something went wrong.");
-      }
-    } catch (err) {
-      setMessage("Error creating post");
+    const data = await res.json();
+    if (res.ok) {
+      alert("✅ Post created successfully!");
+      setMessage("");
+      setCaption("");
+      setImage("");
+      setTimeout(() => setShowModal(false), 500); 
+    } else {
+      setMessage(data.message || "Something went wrong.");
     }
-  };
+  } catch (err) {
+    setMessage("Error creating post");
+  }
+};
+
+
 
   return (
     <div className="dashboard-container">

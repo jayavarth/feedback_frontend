@@ -54,7 +54,7 @@ const AllPostsPage = () => {
   return (
     <div className="allposts-page">
       <div className="allposts-header">
-        <h2>🌟 Community Wall</h2>
+        <h2>Community Wall</h2>
         <p>See what others are sharing and give your feedback!</p>
       </div>
 
