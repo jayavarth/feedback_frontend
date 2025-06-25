@@ -177,3 +177,56 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
+.post-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.btn.small {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+}
+
+.edit-caption textarea {
+  width: 100%;
+  min-height: 60px;
+  font-size: 1rem;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.caption-wrapper {
+  position: relative;
+}
+
+.caption.collapsed {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.caption.expanded {
+  white-space: normal;
+}
+
+.see-more-btn {
+  background: none;
+  border: none;
+  color: #2563eb; /* Tailwind's blue-600 */
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.95rem;
+  padding: 0;
+  margin-top: 4px;
+}
+
+.see-more-btn:hover {
+  color: #1d4ed8; /* Darker blue on hover */
+}
+
+

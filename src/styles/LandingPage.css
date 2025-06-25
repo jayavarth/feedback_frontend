@@ -105,7 +105,7 @@ input:focus {
 
 .hero-section {
   height: 100vh;
-  background-image: url("../assets/image.png");
+  background-image: url("../assets/image1.png");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -115,7 +115,7 @@ input:focus {
 }
 
 .overlay-content {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255,0.9);
   padding: 60px;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
