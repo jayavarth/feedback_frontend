@@ -95,7 +95,7 @@ const LoginPage = () => {
         </form>
 
         <Link to="/" style={{ marginTop: "20px", color: "#1d4ed8" }}>
-          ← Back to Home
+          ~ Back to Home
         </Link>
         <Link to="/signup" style={{ marginTop: "10px", color: "#1d4ed8" }}>
           Create new account

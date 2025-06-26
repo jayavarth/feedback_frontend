@@ -60,7 +60,7 @@ const LandingPage = () => {
       </div>
 
       <div className="landing-posts-section">
-        <h2>🌍 Community Posts</h2>
+        <h2> Community Posts</h2>
         <div className="posts-grid">
           {posts.length === 0 ? (
             <p className="no-posts-text">No posts yet.</p>

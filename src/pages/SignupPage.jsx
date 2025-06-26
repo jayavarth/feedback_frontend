@@ -119,7 +119,7 @@ const SignupPage = () => {
         </form>
 
         <Link to="/" style={{ marginTop: "20px", color: "#1d4ed8" }}>
-          ← Back to Home
+          ~ Back to Home
         </Link>
       </div>
     </div>

@@ -77,7 +77,7 @@ const YourPostsPage = () => {
   return (
     <div className="allposts-page">
       <div className="allposts-header">
-        <h2>📝 Your Posts</h2>
+        <h2> Your Posts</h2>
         <p>These are all the posts you've shared and feedbacks you've received.</p>
       </div>
 

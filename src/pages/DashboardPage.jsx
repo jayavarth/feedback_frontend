@@ -30,7 +30,7 @@ const DashboardPage = () => {
 
     const data = await res.json();
     if (res.ok) {
-      alert("✅ Post created successfully!");
+      alert("Post created successfully!");
       setMessage("");
       setCaption("");
       setImage("");
@@ -60,10 +60,10 @@ const DashboardPage = () => {
 
       <div className="dashboard-content">
         <div className="welcome-card">
-          <h1>Share Your Voice ✨</h1>
+          <h1>Share Your Voice</h1>
           <p>Got something to say? Post anonymously and let others respond openly. No pressure, just honest feedback.</p>
           <button className="create-post-main-btn" onClick={() => setShowModal(true)}>
-            ➕ Create Your Post
+            Create Your Post
           </button>
         </div>
       </div>
